@@ -10,7 +10,7 @@ import styles from './Sidebar.module.css';
 
 const navItems = [
   { label: '📊 Dashboard', path: '/dashboard' },
-  { label: '✨ Generate Caption', path: '/' },
+  { label: '✨ Generate Caption', path: '/generate' },
   { label: '🗓️ 30-Day Planner', path: '/batch' },
   { label: '💡 Knowledge Bank', path: '/notes' },
   { label: '📝 Drafts & Calendar', path: '/drafts' },
