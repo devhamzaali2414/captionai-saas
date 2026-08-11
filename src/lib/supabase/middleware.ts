@@ -55,13 +55,9 @@ export async function updateSession(request: NextRequest) {
   }
 
   if (!user && !isAuthRoute && !isPublicRoute) {
-    // Check for dev demo cookie
-    const isDevDemo = request.cookies.get('demo-session')?.value === 'true';
-    if (!isDevDemo) {
-      const url = request.nextUrl.clone();
-      url.pathname = '/login';
-      return NextResponse.redirect(url);
-    }
+    const url = request.nextUrl.clone();
+    url.pathname = '/login';
+    return NextResponse.redirect(url);
   }
 
   if (user && isAuthRoute && !request.nextUrl.pathname.startsWith('/auth')) {

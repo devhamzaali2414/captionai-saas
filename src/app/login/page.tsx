@@ -97,23 +97,6 @@ export default function LoginPage() {
             Continue with Google
           </button>
 
-          <div style={{ position: 'relative', textAlign: 'center', margin: '0.5rem 0' }}>
-            <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)', background: 'var(--surface)', padding: '0 0.5rem' }}>
-              or quick access
-            </span>
-          </div>
-
-          <button
-            type="button"
-            onClick={async () => {
-              document.cookie = "demo-session=true; path=/";
-              window.location.href = "/dashboard";
-            }}
-            className="btn btn-secondary"
-            style={{ width: '100%', fontSize: '0.85rem' }}
-          >
-            🚀 1-Click Demo Access
-          </button>
         </form>
 
         <div className={styles.footer}>
