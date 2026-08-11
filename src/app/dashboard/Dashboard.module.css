@@ -1,0 +1,222 @@
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--foreground);
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.headerActions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+/* Metric Cards Grid */
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.metricCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.metricIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.metricValue {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--foreground);
+  line-height: 1.1;
+}
+
+.metricLabel {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* Main Dashboard 2-Column Grid */
+.dashboardGrid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 900px) {
+  .dashboardGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+
+.cardTitle {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--foreground);
+}
+
+/* Activity Chart Bars */
+.chartContainer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 160px;
+  padding: 1rem 0 0;
+  gap: 0.75rem;
+}
+
+.chartColumn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.barWrapper {
+  width: 100%;
+  height: 120px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background: var(--background);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.bar {
+  width: 70%;
+  background: linear-gradient(180deg, var(--primary), #0284c7);
+  border-radius: 4px 4px 0 0;
+  transition: height 0.5s ease;
+  min-height: 4px;
+}
+
+.dayLabel {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+/* Best Time Recommendations */
+.timeSlotList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.timeSlotItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+
+.timeDay {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--foreground);
+}
+
+.timeHour {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.engagementBadge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #059669;
+  background: #d1fae5;
+  padding: 0.25rem 0.6rem;
+  border-radius: 9999px;
+}
+
+/* Platform Distribution */
+.channelList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.channelItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.channelHeader {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.progressBar {
+  width: 100%;
+  height: 8px;
+  background: var(--background);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  border-radius: 9999px;
+}

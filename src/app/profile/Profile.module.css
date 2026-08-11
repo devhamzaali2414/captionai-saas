@@ -1,0 +1,49 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.header {
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: var(--text-muted);
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.fullWidth {
+  grid-column: 1 / -1;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.label {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.submitBtn {
+  margin-top: 1rem;
+}

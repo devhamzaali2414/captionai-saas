@@ -1,0 +1,63 @@
+datasource db {
+  provider = "sqlite"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model PracticeProfile {
+  id              Int      @id @default(autoincrement())
+  userId          String   @default("default-user")
+  name            String   @default("")
+  specialty       String   @default("")
+  location        String   @default("")
+  preferredTopics String   @default("")
+  tone            String   @default("")
+  voiceSamples    String   @default("")
+  postizApiKey    String   @default("")
+  isCurrent       Boolean  @default(true)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @default(now()) @updatedAt
+
+  @@index([userId])
+}
+
+model Note {
+  id        Int      @id @default(autoincrement())
+  userId    String   @default("default-user")
+  content   String
+  createdAt DateTime @default(now())
+
+  @@index([userId])
+}
+
+model CaptionDraft {
+  id          Int      @id @default(autoincrement())
+  userId      String   @default("default-user")
+  content     String
+  category    String   @default("General") // Educational, Promo, Tip, BehindTheScenes, Testimonial
+  status      String   @default("draft")   // draft, scheduled, published
+  scheduledAt DateTime?
+  imagePath   String?
+  hashtags    String   @default("")
+  channelName String   @default("")
+  createdAt   DateTime @default(now())
+
+  @@index([userId])
+  @@index([scheduledAt])
+  @@index([status])
+}
+
+model Subscription {
+  id           Int      @id @default(autoincrement())
+  userId       String   @unique @default("default-user")
+  plan         String   @default("free") // free, pro, agency
+  creditsUsed  Int      @default(0)
+  monthlyLimit Int      @default(20)
+  status       String   @default("active")
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @default(now()) @updatedAt
+
+  @@index([userId])
+}

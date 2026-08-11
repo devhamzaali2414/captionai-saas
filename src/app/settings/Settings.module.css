@@ -1,0 +1,34 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.header {
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: var(--text-muted);
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.label {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.input {
+  font-family: monospace;
+}

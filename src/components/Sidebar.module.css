@@ -1,0 +1,127 @@
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 260px;
+  background-color: var(--surface);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.navLink {
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  color: var(--text-muted);
+  font-weight: 500;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.navLink:hover {
+  background-color: var(--surface-hover);
+  color: var(--foreground);
+}
+
+.navLinkActive {
+  background-color: var(--secondary);
+  color: var(--primary);
+}
+
+.userFooter {
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  overflow: hidden;
+}
+
+.userAvatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--secondary);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+.userEmail {
+  font-size: 0.82rem;
+  color: var(--foreground);
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.signOutBtn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  background: transparent;
+  border: 1px solid var(--border);
+  transition: all 0.2s ease;
+  justify-content: center;
+}
+
+.signOutBtn:hover {
+  color: var(--danger);
+  border-color: #fca5a5;
+  background-color: #fef2f2;
+}
+
+.main {
+  flex: 1;
+  padding: 2.5rem 4rem;
+  background-color: var(--background);
+  overflow-y: auto;
+  height: 100vh;
+}
+
+.authMain {
+  flex: 1;
+  padding: 0;
+  background-color: var(--background);
+  overflow-y: auto;
+  height: 100vh;
+}

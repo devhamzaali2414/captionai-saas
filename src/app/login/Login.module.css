@@ -1,0 +1,130 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: radial-gradient(circle at 50% 20%, rgba(2, 132, 199, 0.08) 0%, transparent 60%),
+              var(--background);
+}
+
+.authCard {
+  width: 100%;
+  max-width: 440px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 2.5rem;
+  box-shadow: var(--shadow-lg);
+}
+
+.brandHeader {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.logoIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, var(--primary), #0284c7);
+  color: white;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
+}
+
+.title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--foreground);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.25rem;
+}
+
+.subtitle {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  font-size: 0.95rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: #ffffff;
+  transition: all 0.2s ease;
+}
+
+.input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+}
+
+.submitBtn {
+  width: 100%;
+  padding: 0.85rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+.footer {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.link {
+  color: var(--primary);
+  font-weight: 600;
+  margin-left: 0.35rem;
+  transition: color 0.2s;
+}
+
+.link:hover {
+  color: var(--primary-hover);
+  text-decoration: underline;
+}
+
+.errorBanner {
+  background-color: #fef2f2;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  font-size: 0.88rem;
+  margin-bottom: 1.25rem;
+}
+
+.successBanner {
+  background-color: #ecfdf5;
+  color: #047857;
+  border: 1px solid #a7f3d0;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  font-size: 0.88rem;
+  margin-bottom: 1.25rem;
+}

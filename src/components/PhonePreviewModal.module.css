@@ -1,0 +1,215 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.modal {
+  background: var(--surface);
+  border-radius: var(--radius-xl);
+  max-width: 500px;
+  width: 100%;
+  max-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--foreground);
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: var(--radius-sm);
+}
+
+.platformTabs {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--background);
+  border-bottom: 1px solid var(--border);
+}
+
+.platformTab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.85rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  border: 1px solid var(--border);
+  background: #ffffff;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.platformTabActive {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+.phoneBody {
+  padding: 1.5rem;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  background: #f1f5f9;
+}
+
+/* Phone Frame */
+.phoneDevice {
+  width: 100%;
+  max-width: 380px;
+  background: #ffffff;
+  border-radius: 36px;
+  border: 8px solid #0f172a;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.phoneNotch {
+  height: 24px;
+  background: #0f172a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.speaker {
+  width: 60px;
+  height: 4px;
+  background: #334155;
+  border-radius: 2px;
+}
+
+/* Instagram Post Simulation */
+.postHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+}
+
+.authorInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.authorAvatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f59e0b, #ec4899, #8b5cf6);
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatarInner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: var(--primary);
+}
+
+.authorName {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.verifiedBadge {
+  color: #0284c7;
+  display: inline-flex;
+}
+
+.postMedia {
+  width: 100%;
+  background: #f8fafc;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.postMedia img {
+  width: 100%;
+  height: auto;
+  max-height: 380px;
+  object-fit: cover;
+}
+
+.postActions {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 1rem 0.25rem;
+}
+
+.actionIcons {
+  display: flex;
+  gap: 0.85rem;
+  color: #0f172a;
+}
+
+.postDetails {
+  padding: 0.5rem 1rem 1rem;
+}
+
+.likesCount {
+  font-size: 0.82rem;
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+}
+
+.postCaption {
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: #1e293b;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
