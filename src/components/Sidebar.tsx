@@ -22,6 +22,12 @@ const navItems = [
 export default function Sidebar() {
   const pathname = usePathname();
   const [userEmail, setUserEmail] = useState<string | null>(null);
+  const [isOpen, setIsOpen] = useState(false);
+
+  // Close sidebar on route change
+  useEffect(() => {
+    setIsOpen(false);
+  }, [pathname]);
 
   // Hide sidebar on auth and public landing pages
   const isAuthPage = pathname === '/login' || pathname === '/signup' || pathname === '/landing';
@@ -50,13 +56,39 @@ export default function Sidebar() {
   const initial = userEmail ? userEmail.charAt(0).toUpperCase() : 'P';
 
   return (
-    <aside className={styles.sidebar}>
-      <div className={styles.logo}>
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
-        CaptionAI
+    <>
+      <div className={styles.mobileHeader}>
+        <div className={styles.logo}>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+          CaptionAI
+        </div>
+        <button className={styles.menuToggle} onClick={() => setIsOpen(true)}>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M3 12h18M3 6h18M3 18h18" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </button>
       </div>
+
+      {isOpen && (
+        <div className={styles.overlay} onClick={() => setIsOpen(false)} />
+      )}
+
+      <aside className={`${styles.sidebar} ${isOpen ? styles.sidebarOpen : ''}`}>
+        <div className={styles.sidebarHeader}>
+          <div className={styles.logo}>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+            CaptionAI
+          </div>
+          <button className={styles.closeBtn} onClick={() => setIsOpen(false)}>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M18 6L6 18M6 6l12 12" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </button>
+        </div>
 
       <ClinicSwitcher />
 
@@ -97,5 +129,6 @@ export default function Sidebar() {
         </form>
       </div>
     </aside>
+    </>
   );
 }
