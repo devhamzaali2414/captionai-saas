@@ -37,12 +37,22 @@ export async function updateSession(request: NextRequest) {
     data: { user },
   } = await supabase.auth.getUser();
 
-  const isPublicRoute = request.nextUrl.pathname.startsWith('/pricing') ||
-                        request.nextUrl.pathname.startsWith('/landing');
+  const pathname = request.nextUrl.pathname;
 
-  const isAuthRoute = request.nextUrl.pathname.startsWith('/login') ||
-                      request.nextUrl.pathname.startsWith('/signup') ||
-                      request.nextUrl.pathname.startsWith('/auth');
+  const isPublicRoute = pathname.startsWith('/pricing') ||
+                        pathname.startsWith('/landing') ||
+                        pathname === '/';
+
+  const isAuthRoute = pathname.startsWith('/login') ||
+                      pathname.startsWith('/signup') ||
+                      pathname.startsWith('/auth');
+
+  // Redirect root URL: guests → landing page, logged-in → dashboard
+  if (pathname === '/') {
+    const url = request.nextUrl.clone();
+    url.pathname = user ? '/dashboard' : '/landing';
+    return NextResponse.redirect(url);
+  }
 
   if (!user && !isAuthRoute && !isPublicRoute) {
     // Check for dev demo cookie
