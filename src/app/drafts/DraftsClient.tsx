@@ -38,6 +38,20 @@ export default function DraftsClient({ initialDrafts, integrations }: DraftsClie
   const [filter, setFilter] = useState<'all' | 'draft' | 'scheduled'>('all');
   const [drafts, setDrafts] = useState<Draft[]>(initialDrafts);
   const [editingId, setEditingId] = useState<number | null>(null);
+
+  // Fix timezone: convert datetime-local (local time) to UTC ISO string before sending to server
+  async function handleScheduleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    const localDateStr = formData.get('scheduledDate') as string;
+    if (localDateStr) {
+      // new Date() in browser interprets datetime-local as LOCAL time and converts to UTC
+      const utcIso = new Date(localDateStr).toISOString();
+      formData.set('scheduledDate', utcIso);
+    }
+    await scheduleDraft(formData);
+  }
   const [editContent, setEditContent] = useState<string>('');
   const [enhancingId, setEnhancingId] = useState<number | null>(null);
 
@@ -288,7 +302,7 @@ export default function DraftsClient({ initialDrafts, integrations }: DraftsClie
                     </div>
 
                     {draft.status === 'draft' && (
-                      <form action={scheduleDraft} className={styles.scheduleForm}>
+                      <form onSubmit={handleScheduleSubmit} className={styles.scheduleForm}>
                         <input type="hidden" name="draftId" value={draft.id} />
                         <select name="integrationId" className={styles.select} required>
                           <option value="">Select account...</option>
