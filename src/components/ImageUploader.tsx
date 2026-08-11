@@ -17,20 +17,34 @@ export default function ImageUploader({ draftId, initialImagePath }: ImageUpload
     const file = e.target.files?.[0];
     if (!file) return;
 
-    if (file.size > 4 * 1024 * 1024) {
-      alert('Please select an image smaller than 4MB.');
+    if (file.size > 5 * 1024 * 1024) {
+      alert('Please select an image smaller than 5MB.');
       return;
     }
 
     setUploading(true);
-    const reader = new FileReader();
-    reader.onload = async (event) => {
-      const base64 = event.target?.result as string;
-      setImagePath(base64);
-      await attachImageToDraft(draftId, base64);
-      setUploading(false);
-    };
-    reader.readAsDataURL(file);
+
+    const formData = new FormData();
+    formData.append('file', file);
+
+    fetch('/api/upload-image', {
+      method: 'POST',
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then(async (data) => {
+        if (data.url) {
+          setImagePath(data.url);
+          await attachImageToDraft(draftId, data.url);
+        } else {
+          alert('Image upload failed: ' + (data.error || 'Unknown error'));
+        }
+        setUploading(false);
+      })
+      .catch(() => {
+        alert('Failed to upload image. Please try again.');
+        setUploading(false);
+      });
   }
 
   async function handleRemove() {
